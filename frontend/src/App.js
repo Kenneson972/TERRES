@@ -208,32 +208,54 @@ const Footer = () => {
 };
 
 // Home Component
-const Home = () => {
+const HomePage = () => {
   const navigate = useNavigate();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [selectedFormule, setSelectedFormule] = useState(null);
-  const [showBookingDialog, setShowBookingDialog] = useState(false);
-  const [reservations, setReservations] = useState([]);
-  const [blocages, setBlocages] = useState([]);
-  const [selectedDates, setSelectedDates] = useState({ from: null, to: null });
-  const [bookingForm, setBookingForm] = useState({
-    nom: '',
-    email: '',
-    telephone: '',
-    nombrePersonnes: '',
-    modePaiement: '1x'
-  });
-
+  
   const images = {
-    hero: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/v9wedq6e_IMG_9650.jpeg',
-    gallery: [
-      'https://customer-assets.emergentagent.com/job_villarental/artifacts/v9wedq6e_IMG_9650.jpeg',
-      'https://customer-assets.emergentagent.com/job_villarental/artifacts/2xzjs8yb_IMG_9651.jpeg',
-      'https://customer-assets.emergentagent.com/job_villarental/artifacts/gxd6nps1_IMG_9645.jpeg',
-      'https://customer-assets.emergentagent.com/job_villarental/artifacts/ygz7r35z_IMG_9644.jpeg',
-      'https://customer-assets.emergentagent.com/job_villarental/artifacts/j8b3zaod_IMG_9643.jpeg'
-    ]
+    hero: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/v9wedq6e_IMG_9650.jpeg'
   };
+
+  return (
+    <div className="page-container">
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section className="hero-section">
+        <video 
+          className="hero-video" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          poster={images.hero}
+        >
+          <source src="https://customer-assets.emergentagent.com/job_villarental/artifacts/rsa6tvb7_308498c1-b147-4585-aeff-9a79443d77b5.mov" type="video/quicktime" />
+          <source src="https://customer-assets.emergentagent.com/job_villarental/artifacts/rsa6tvb7_308498c1-b147-4585-aeff-9a79443d77b5.mov" type="video/mp4" />
+        </video>
+        <div className="hero-image" style={{ backgroundImage: `url(${images.hero})` }}></div>
+        <div className="hero-overlay"></div>
+        <div className="hero-content">
+          <h1 className="hero-title">Terre d'Évasion - Votre Villa de Rêve en Martinique</h1>
+          <p className="hero-subtitle">Jusqu'à 80 personnes | Piscine | Événements | Séjours</p>
+          <div className="hero-buttons">
+            <Button data-testid="decouvrir-formules-btn" size="lg" className="hero-btn-primary" onClick={() => navigate('/formules')}>
+              DÉCOUVRIR NOS FORMULES
+            </Button>
+            <Button data-testid="voir-calendrier-btn" size="lg" variant="outline" className="hero-btn-secondary" onClick={() => navigate('/calendrier')}>
+              VOIR LE CALENDRIER
+            </Button>
+          </div>
+          <div className="scroll-indicator">
+            <div className="scroll-arrow"></div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+      <Toaster position="top-right" />
+    </div>
+  );
+};
 
   useEffect(() => {
     fetchCalendarData();
