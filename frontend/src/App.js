@@ -220,18 +220,18 @@ const Home = () => {
       <nav className="navbar">
         <div className="container">
           <div className="nav-content">
-            <div className="logo">
+            <div className="logo" onClick={() => navigate('/')}>
               <HomeIcon size={32} />
-              <span>Villa Paradise</span>
+              <span>Terre d'Évasion</span>
             </div>
             
             <div className="desktop-menu">
-              <button onClick={() => scrollToSection('accueil')} className="nav-link">Accueil</button>
-              <button onClick={() => scrollToSection('formules')} className="nav-link">Formules</button>
-              <button onClick={() => scrollToSection('calendrier')} className="nav-link">Calendrier</button>
-              <button onClick={() => scrollToSection('galerie')} className="nav-link">Galerie</button>
-              <button onClick={() => scrollToSection('partenaires')} className="nav-link">Partenaires</button>
-              <button onClick={() => scrollToSection('contact')} className="nav-link">Contact</button>
+              <button onClick={() => navigate('/')} className="nav-link">Accueil</button>
+              <button onClick={() => navigate('/formules')} className="nav-link">Formules</button>
+              <button onClick={() => navigate('/calendrier')} className="nav-link">Calendrier</button>
+              <button onClick={() => navigate('/galerie')} className="nav-link">Galerie</button>
+              <button onClick={() => navigate('/partenaires')} className="nav-link">Partenaires</button>
+              <button onClick={() => navigate('/contact')} className="nav-link">Contact</button>
             </div>
 
             <div className="nav-actions">
