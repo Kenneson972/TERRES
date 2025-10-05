@@ -18,6 +18,8 @@ import { Menu, X, Phone, Mail, MapPin, Facebook, Instagram, MessageCircle, Calen
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
+const LOGO_URL = 'https://customer-assets.emergentagent.com/job_villarental/artifacts/6fjmjmnu_6F98CDFE-A806-4658-8D01-38C34AD4CF17.png';
+
 // Formulas data
 const FORMULES = [
   {
@@ -81,6 +83,129 @@ const FORMULES = [
     popular: false
   }
 ];
+
+// Navigation Component
+const Navigation = () => {
+  const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <>
+      {/* Top Contact Bar */}
+      <div className="top-contact-bar">
+        <div className="container">
+          <div className="contact-items">
+            <a href="tel:+596696000000" className="contact-item">
+              <Phone size={16} />
+              <span>+596 696 XX XX XX</span>
+            </a>
+            <a href="mailto:contact@terredevasion.com" className="contact-item">
+              <Mail size={16} />
+              <span>contact@terredevasion.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <nav className="navbar">
+        <div className="container">
+          <div className="nav-content">
+            <div className="logo" onClick={() => navigate('/')}>
+              <img src={LOGO_URL} alt="Terre d'Évasion" className="logo-img" />
+            </div>
+            
+            <div className="desktop-menu">
+              <button onClick={() => navigate('/')} className="nav-link">Accueil</button>
+              <button onClick={() => navigate('/formules')} className="nav-link">Formules</button>
+              <button onClick={() => navigate('/calendrier')} className="nav-link">Calendrier</button>
+              <button onClick={() => navigate('/galerie')} className="nav-link">Galerie</button>
+              <button onClick={() => navigate('/partenaires')} className="nav-link">Partenaires</button>
+              <button onClick={() => navigate('/contact')} className="nav-link">Contact</button>
+            </div>
+
+            <div className="nav-actions">
+              <div className="social-icons">
+                <a href="#" className="social-icon"><Facebook size={20} /></a>
+                <a href="#" className="social-icon"><Instagram size={20} /></a>
+                <a href="#" className="social-icon"><MessageCircle size={20} /></a>
+              </div>
+              <Button data-testid="reserver-btn" className="cta-button" onClick={() => navigate('/formules')}>
+                RÉSERVER
+              </Button>
+              <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="mobile-menu">
+              <button onClick={() => { navigate('/'); setMobileMenuOpen(false); }} className="mobile-nav-link">Accueil</button>
+              <button onClick={() => { navigate('/formules'); setMobileMenuOpen(false); }} className="mobile-nav-link">Formules</button>
+              <button onClick={() => { navigate('/calendrier'); setMobileMenuOpen(false); }} className="mobile-nav-link">Calendrier</button>
+              <button onClick={() => { navigate('/galerie'); setMobileMenuOpen(false); }} className="mobile-nav-link">Galerie</button>
+              <button onClick={() => { navigate('/partenaires'); setMobileMenuOpen(false); }} className="mobile-nav-link">Partenaires</button>
+              <button onClick={() => { navigate('/contact'); setMobileMenuOpen(false); }} className="mobile-nav-link">Contact</button>
+            </div>
+          )}
+        </div>
+      </nav>
+    </>
+  );
+};
+
+// Footer Component
+const Footer = () => {
+  const navigate = useNavigate();
+
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-grid">
+          <div className="footer-col">
+            <img src={LOGO_URL} alt="Terre d'Évasion" className="footer-logo" />
+            <p>Votre havre de paix en Martinique pour des séjours et événements inoubliables.</p>
+          </div>
+          <div className="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><button onClick={() => navigate('/')}>Accueil</button></li>
+              <li><button onClick={() => navigate('/formules')}>Formules</button></li>
+              <li><button onClick={() => navigate('/calendrier')}>Calendrier</button></li>
+              <li><button onClick={() => navigate('/contact')}>Contact</button></li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>Contact</h4>
+            <ul>
+              <li>+596 696 XX XX XX</li>
+              <li>contact@terredevasion.com</li>
+              <li>QUARTIER BELEME 138<br/>97232 LE LAMENTIN</li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>Suivez-nous</h4>
+            <div className="footer-social">
+              <a href="#" className="footer-social-icon"><Facebook size={24} /></a>
+              <a href="#" className="footer-social-icon"><Instagram size={24} /></a>
+              <a href="#" className="footer-social-icon"><MessageCircle size={24} /></a>
+            </div>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>&copy; 2025 Terre d'Évasion. Tous droits réservés.</p>
+          <div className="footer-links">
+            <a href="#">Mentions légales</a>
+            <a href="#">CGV</a>
+            <a href="#">Politique de confidentialité</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
 
 // Home Component
 const Home = () => {
