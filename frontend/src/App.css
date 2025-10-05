@@ -829,6 +829,357 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .booking-form {
+
+/* Luxury Styles */
+.luxury {
+  position: relative;
+}
+
+.section-header-luxury {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  position: relative;
+}
+
+.luxury-subtitle {
+  display: block;
+  font-size: 0.875rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-title-luxury {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+.section-description-luxury {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Luxury Gallery Grid */
+.gallery-grid-luxury {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.gallery-item-luxury {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border);
+}
+
+.gallery-item-luxury:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+}
+
+.gallery-item-overlay-luxury {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-item-luxury img,
+.video-thumbnail video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item-luxury:hover img,
+.gallery-item-luxury:hover .video-thumbnail video {
+  transform: scale(1.1);
+}
+
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-darker);
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.gallery-item-luxury:hover .play-button {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(2, 6, 23, 0.95) 0%,
+    rgba(2, 6, 23, 0.5) 50%,
+    transparent 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: var(--spacing-lg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-item-luxury:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.gallery-overlay-content p {
+  color: var(--accent);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(2, 6, 23, 0.98);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.lightbox-media {
+  max-width: 100%;
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 25px 100px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: rotate(90deg);
+}
+
+.lightbox-title {
+  text-align: center;
+  color: var(--white);
+  font-size: 1.25rem;
+  margin-top: var(--spacing-md);
+  font-family: 'Playfair Display', serif;
+}
+
+/* Luxury Features Grid */
+.features-grid-luxury {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.feature-card-luxury {
+  background: var(--bg-card);
+  padding: var(--spacing-xl);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card-luxury::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.feature-card-luxury:hover::before {
+  left: 100%;
+}
+
+.feature-card-luxury:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2);
+  border-color: var(--primary);
+}
+
+.feature-icon-luxury {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-md);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: all 0.4s ease;
+}
+
+.feature-card-luxury:hover .feature-icon-luxury {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.feature-card-luxury h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.feature-card-luxury p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Enhanced Hero with better video styling */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 0;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.hero-title {
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 800;
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.5px;
+}
+
+.hero-btn-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, #d97706 100%);
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+}
+
+.hero-btn-primary:hover {
+  box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
+}
+
+/* Responsive adjustments for luxury gallery */
+@media (max-width: 768px) {
+  .gallery-grid-luxury {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .section-title-luxury {
+    font-size: 2rem;
+  }
+  
+  .features-grid-luxury {
+    grid-template-columns: 1fr;
+  }
+  
+  .lightbox-media {
+    max-height: 70vh;
+  }
+}
+
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
