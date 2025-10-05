@@ -119,25 +119,29 @@ const CalendrierPage = () => {
 const GaleriePage = () => {
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [showLightbox, setShowLightbox] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const galleryImages = [
-    { type: 'image', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/v9wedq6e_IMG_9650.jpeg', title: 'Piscine de luxe' },
-    { type: 'image', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/2xzjs8yb_IMG_9651.jpeg', title: 'Espace détente' },
-    { type: 'image', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/gxd6nps1_IMG_9645.jpeg', title: 'Vue extérieure' },
-    { type: 'image', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/ygz7r35z_IMG_9644.jpeg', title: 'Espace bar' },
-    { type: 'image', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/j8b3zaod_IMG_9643.jpeg', title: 'Chambre cosy' },
-    { type: 'image', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/y6e153v1_IMG_9642.jpeg', title: 'Espace bien-être' }
+    { type: 'image', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/v9wedq6e_IMG_9650.jpeg', title: 'Piscine de luxe', description: 'Piscine chauffée avec vue panoramique' },
+    { type: 'image', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/2xzjs8yb_IMG_9651.jpeg', title: 'Espace détente', description: 'Salon extérieur avec vue mer' },
+    { type: 'image', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/gxd6nps1_IMG_9645.jpeg', title: 'Vue extérieure', description: 'Architecture moderne et élégante' },
+    { type: 'image', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/ygz7r35z_IMG_9644.jpeg', title: 'Espace bar', description: 'Bar équipé pour vos événements' },
+    { type: 'image', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/j8b3zaod_IMG_9643.jpeg', title: 'Chambre cosy', description: 'Chambres spacieuses et confortables' },
+    { type: 'image', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/y6e153v1_IMG_9642.jpeg', title: 'Espace bien-être', description: 'Zone de relaxation privée' }
   ];
 
   const galleryVideos = [
-    { type: 'video', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/murxouhh_VIDEO-2025-10-03-12-18-12.mp4', title: 'Visite virtuelle 1', poster: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/v9wedq6e_IMG_9650.jpeg' },
-    { type: 'video', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/w2oio5ts_VIDEO-2025-10-03-12-18-11.mp4', title: 'Visite virtuelle 2', poster: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/2xzjs8yb_IMG_9651.jpeg' },
-    { type: 'video', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/6tp3d75s_VIDEO-2025-10-03-12-18-11.mp4', title: 'Visite virtuelle 3', poster: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/gxd6nps1_IMG_9645.jpeg' },
-    { type: 'video', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/cbqcvbhm_VIDEO-2025-10-03-12-18-11.mp4', title: 'Visite virtuelle 4', poster: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/ygz7r35z_IMG_9644.jpeg' }
+    { type: 'video', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/murxouhh_VIDEO-2025-10-03-12-18-12.mp4', title: 'Visite virtuelle 1', description: 'Découvrez la piscine', poster: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/v9wedq6e_IMG_9650.jpeg' },
+    { type: 'video', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/w2oio5ts_VIDEO-2025-10-03-12-18-11.mp4', title: 'Visite virtuelle 2', description: 'Tour des espaces communs', poster: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/2xzjs8yb_IMG_9651.jpeg' },
+    { type: 'video', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/6tp3d75s_VIDEO-2025-10-03-12-18-11.mp4', title: 'Visite virtuelle 3', description: 'Les extérieurs de la villa', poster: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/gxd6nps1_IMG_9645.jpeg' },
+    { type: 'video', url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/cbqcvbhm_VIDEO-2025-10-03-12-18-11.mp4', title: 'Visite virtuelle 4', description: 'Vue d\'ensemble', poster: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/ygz7r35z_IMG_9644.jpeg' }
   ];
 
-  const openLightbox = (media) => {
+  const allMedia = [...galleryImages, ...galleryVideos];
+
+  const openLightbox = (media, index) => {
     setSelectedMedia(media);
+    setCurrentIndex(index);
     setShowLightbox(true);
   };
 
@@ -145,6 +149,25 @@ const GaleriePage = () => {
     setShowLightbox(false);
     setSelectedMedia(null);
   };
+
+  const navigateLightbox = (direction) => {
+    const newIndex = direction === 'next' 
+      ? (currentIndex + 1) % allMedia.length 
+      : (currentIndex - 1 + allMedia.length) % allMedia.length;
+    setCurrentIndex(newIndex);
+    setSelectedMedia(allMedia[newIndex]);
+  };
+
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (!showLightbox) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') navigateLightbox('next');
+      if (e.key === 'ArrowLeft') navigateLightbox('prev');
+    };
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [showLightbox, currentIndex]);
 
   return (<div className="page-container"><Navigation /><section className="galerie-section-premium"><div className="container"><div className="section-header-luxury"><span className="luxury-subtitle">Découvrez</span><h2 className="section-title-luxury">Notre Villa d'Exception</h2><p className="section-description-luxury">Cliquez sur une image pour l'agrandir en plein écran</p></div><div className="gallery-premium-grid">{galleryImages.map((media, idx) => (<div key={idx} className="gallery-premium-item" onClick={() => openLightbox(media)} data-testid={`gallery-item-${idx}`}><div className="gallery-premium-content"><img src={media.url} alt={media.title} loading="lazy" className="gallery-premium-img" /><div className="gallery-premium-overlay"><div className="gallery-premium-info"><h3>{media.title}</h3><p className="gallery-premium-action">Cliquer pour agrandir</p></div></div></div></div>))}</div></div></section><section className="videos-section"><div className="container"><h2 className="section-title-luxury">Visites Virtuelles</h2><p className="section-description-luxury">Cliquez pour agrandir et visionner les vidéos</p><div className="videos-grid">{galleryVideos.map((media, idx) => (<div key={idx} className="video-card" onClick={() => openLightbox(media)} data-testid={`video-item-${idx}`}><div className="video-card-content"><video src={media.url} poster={media.poster} muted loop playsInline className="video-preview" /><div className="play-overlay-large"><svg width="90" height="90" viewBox="0 0 90 90" fill="none"><circle cx="45" cy="45" r="43" fill="rgba(245, 158, 11, 0.95)" stroke="white" strokeWidth="3"/><path d="M36 28L63 45L36 62V28Z" fill="white"/></svg></div></div><div className="video-card-title">{media.title}</div></div>))}</div></div></section><section className="features-section luxury"><div className="container"><h2 className="section-title-luxury">Caractéristiques Premium</h2><div className="features-grid-luxury"><div className="feature-card-luxury"><div className="feature-icon-luxury"><Users size={40} /></div><h3>Capacité 80 personnes</h3><p>Idéal pour vos événements privés et célébrations mémorables</p></div><div className="feature-card-luxury"><div className="feature-icon-luxury"><Home size={40} /></div><h3>Villa spacieuse</h3><p>Espaces intérieurs et extérieurs généreux pour votre confort</p></div><div className="feature-card-luxury"><div className="feature-icon-luxury"><Home size={40} /></div><h3>Piscine privée</h3><p>Profitez d'une piscine exclusive avec vue panoramique</p></div><div className="feature-card-luxury"><div className="feature-icon-luxury"><CheckCircle size={40} /></div><h3>Équipements haut de gamme</h3><p>Cuisine professionnelle, sonorisation, climatisation</p></div><div className="feature-card-luxury"><div className="feature-icon-luxury"><CheckCircle size={40} /></div><h3>Espaces modulables</h3><p>Configuration personnalisée selon vos besoins</p></div><div className="feature-card-luxury"><div className="feature-icon-luxury"><CheckCircle size={40} /></div><h3>Parking sécurisé</h3><p>Stationnement privé pour vos invités</p></div></div></div></section>{showLightbox && selectedMedia && (<div className="lightbox-premium" onClick={closeLightbox} data-testid="lightbox-overlay"><div className="lightbox-premium-content" onClick={(e) => e.stopPropagation()}><button className="lightbox-premium-close" onClick={closeLightbox} data-testid="lightbox-close"><X size={32} /></button><div className="lightbox-premium-media">{selectedMedia.type === 'video' ? (<video src={selectedMedia.url} controls autoPlay className="lightbox-premium-video" poster={selectedMedia.poster} />) : (<img src={selectedMedia.url} alt={selectedMedia.title} className="lightbox-premium-img" />)}</div><div className="lightbox-premium-title">{selectedMedia.title}</div></div></div>)}<Footer /><Toaster position="top-right" /></div>);
 };
