@@ -269,13 +269,13 @@ const Home = () => {
           <div className="hero-overlay"></div>
         </div>
         <div className="hero-content">
-          <h1 className="hero-title">Votre Villa de Rêve en Martinique</h1>
+          <h1 className="hero-title">Terre d'Évasion - Votre Villa de Rêve en Martinique</h1>
           <p className="hero-subtitle">Jusqu'à 80 personnes | Piscine | Événements | Séjours</p>
           <div className="hero-buttons">
-            <Button data-testid="decouvrir-formules-btn" size="lg" className="hero-btn-primary" onClick={() => scrollToSection('formules')}>
+            <Button data-testid="decouvrir-formules-btn" size="lg" className="hero-btn-primary" onClick={() => navigate('/formules')}>
               DÉCOUVRIR NOS FORMULES
             </Button>
-            <Button data-testid="voir-calendrier-btn" size="lg" variant="outline" className="hero-btn-secondary" onClick={() => scrollToSection('calendrier')}>
+            <Button data-testid="voir-calendrier-btn" size="lg" variant="outline" className="hero-btn-secondary" onClick={() => navigate('/calendrier')}>
               VOIR LE CALENDRIER
             </Button>
           </div>
