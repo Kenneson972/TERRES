@@ -32,6 +32,14 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background: var(--bg-dark);
+  font-size: 16px;
+}
+
 .page-container {
   min-height: 100vh;
   display: flex;
