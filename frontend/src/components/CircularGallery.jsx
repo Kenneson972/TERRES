@@ -196,14 +196,33 @@ class Media {
       },
       transparent: true
     });
+    
+    // Créer l'image avec gestion d'erreur robuste
     const img = new Image();
+    
+    // Essayer sans crossOrigin d'abord
     img.src = this.image;
+    
     img.onload = () => {
+      console.log('Image loaded successfully:', this.image);
       texture.image = img;
       this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight];
     };
+    
     img.onerror = (e) => {
       console.error('Error loading image:', this.image, e);
+      // Essayer avec crossOrigin en cas d'échec
+      const img2 = new Image();
+      img2.crossOrigin = 'use-credentials';
+      img2.src = this.image;
+      img2.onload = () => {
+        console.log('Image loaded with credentials:', this.image);
+        texture.image = img2;
+        this.program.uniforms.uImageSizes.value = [img2.naturalWidth, img2.naturalHeight];
+      };
+      img2.onerror = (e2) => {
+        console.error('Failed to load image with credentials:', this.image, e2);
+      };
     };
   }
   createMesh() {
