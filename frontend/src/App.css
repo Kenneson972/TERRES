@@ -104,6 +104,20 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   color: var(--primary);
   font-family: 'Playfair Display', serif;
+  cursor: pointer;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: var(--spacing-md);
 }
 
 .desktop-menu {
