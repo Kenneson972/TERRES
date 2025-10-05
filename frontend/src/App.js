@@ -240,7 +240,7 @@ const Home = () => {
                 <a href="#" className="social-icon"><Instagram size={20} /></a>
                 <a href="#" className="social-icon"><MessageCircle size={20} /></a>
               </div>
-              <Button data-testid="reserver-btn" className="cta-button" onClick={() => scrollToSection('formules')}>
+              <Button data-testid="reserver-btn" className="cta-button" onClick={() => navigate('/formules')}>
                 RÉSERVER
               </Button>
               <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -252,12 +252,12 @@ const Home = () => {
           {/* Mobile Menu */}
           {mobileMenuOpen && (
             <div className="mobile-menu">
-              <button onClick={() => scrollToSection('accueil')} className="mobile-nav-link">Accueil</button>
-              <button onClick={() => scrollToSection('formules')} className="mobile-nav-link">Formules</button>
-              <button onClick={() => scrollToSection('calendrier')} className="mobile-nav-link">Calendrier</button>
-              <button onClick={() => scrollToSection('galerie')} className="mobile-nav-link">Galerie</button>
-              <button onClick={() => scrollToSection('partenaires')} className="mobile-nav-link">Partenaires</button>
-              <button onClick={() => scrollToSection('contact')} className="mobile-nav-link">Contact</button>
+              <button onClick={() => { navigate('/'); setMobileMenuOpen(false); }} className="mobile-nav-link">Accueil</button>
+              <button onClick={() => { navigate('/formules'); setMobileMenuOpen(false); }} className="mobile-nav-link">Formules</button>
+              <button onClick={() => { navigate('/calendrier'); setMobileMenuOpen(false); }} className="mobile-nav-link">Calendrier</button>
+              <button onClick={() => { navigate('/galerie'); setMobileMenuOpen(false); }} className="mobile-nav-link">Galerie</button>
+              <button onClick={() => { navigate('/partenaires'); setMobileMenuOpen(false); }} className="mobile-nav-link">Partenaires</button>
+              <button onClick={() => { navigate('/contact'); setMobileMenuOpen(false); }} className="mobile-nav-link">Contact</button>
             </div>
           )}
         </div>
