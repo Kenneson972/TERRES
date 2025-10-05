@@ -621,7 +621,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .faq-section {
   padding: var(--spacing-2xl) 0;
-  background: var(--white);
+  background: var(--bg-darker);
 }
 
 .faq-accordion {
@@ -631,7 +631,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact-section {
   padding: var(--spacing-2xl) 0;
-  background: var(--neutral);
+  background: var(--bg-dark);
 }
 
 .contact-grid {
@@ -642,10 +642,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact-form-wrapper,
 .contact-info-wrapper {
-  background: var(--white);
+  background: var(--bg-card);
   padding: var(--spacing-xl);
   border-radius: 12px;
   box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
 }
 
 .contact-form {
