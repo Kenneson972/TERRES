@@ -84,6 +84,7 @@ const FORMULES = [
 
 // Home Component
 const Home = () => {
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedFormule, setSelectedFormule] = useState(null);
   const [showBookingDialog, setShowBookingDialog] = useState(false);
@@ -101,14 +102,11 @@ const Home = () => {
   const images = {
     hero: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/v9wedq6e_IMG_9650.jpeg',
     gallery: [
+      'https://customer-assets.emergentagent.com/job_villarental/artifacts/v9wedq6e_IMG_9650.jpeg',
       'https://customer-assets.emergentagent.com/job_villarental/artifacts/2xzjs8yb_IMG_9651.jpeg',
       'https://customer-assets.emergentagent.com/job_villarental/artifacts/gxd6nps1_IMG_9645.jpeg',
       'https://customer-assets.emergentagent.com/job_villarental/artifacts/ygz7r35z_IMG_9644.jpeg',
-      'https://customer-assets.emergentagent.com/job_villarental/artifacts/j8b3zaod_IMG_9643.jpeg',
-      'https://images.unsplash.com/photo-1728050829115-490e7a27ad81?crop=entropy&cs=srgb&fm=jpg&q=85',
-      'https://images.unsplash.com/photo-1567455231583-6a1b94181ef4?crop=entropy&cs=srgb&fm=jpg&q=85',
-      'https://images.unsplash.com/photo-1728049006245-1bccfca6b504?crop=entropy&cs=srgb&fm=jpg&q=85',
-      'https://images.unsplash.com/photo-1599302592205-d7d683c83eea?crop=entropy&cs=srgb&fm=jpg&q=85'
+      'https://customer-assets.emergentagent.com/job_villarental/artifacts/j8b3zaod_IMG_9643.jpeg'
     ]
   };
 
