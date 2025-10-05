@@ -53,10 +53,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-contact-bar {
-  background: var(--primary);
-  color: var(--white);
+  background: var(--bg-darker);
+  color: var(--text);
   padding: var(--spacing-xs) 0;
   font-size: 0.875rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .contact-items {
