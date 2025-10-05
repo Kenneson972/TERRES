@@ -512,7 +512,7 @@ const Home = () => {
                 <h3>Coordonnées</h3>
                 <div className="info-item">
                   <MapPin size={20} />
-                  <span>Martinique, 97200</span>
+                  <span>QUARTIER BELEME 138 impasse Jean Calixte<br/>97232 LE LAMENTIN</span>
                 </div>
                 <div className="info-item">
                   <Phone size={20} />
@@ -520,13 +520,13 @@ const Home = () => {
                 </div>
                 <div className="info-item">
                   <Mail size={20} />
-                  <span>contact@villa-martinique.com</span>
+                  <span>contact@terredevasion.com</span>
                 </div>
               </div>
               
               <div className="map-placeholder">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245967.38765451618!2d-61.02419843906247!3d14.641527599999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c6a0d8b0d0d5555%3A0x1234567890abcdef!2sMartinique!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.234567890123!2d-60.9876543!3d14.6123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDM2JzQ0LjQiTiA2MMKwNTknMTUuNiJX!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr&q=QUARTIER+BELEME+138+impasse+Jean+Calixte+97232+LE+LAMENTIN"
                   width="100%" 
                   height="300" 
                   style={{ border: 0 }} 
