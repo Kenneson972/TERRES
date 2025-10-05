@@ -265,9 +265,17 @@ const Home = () => {
 
       {/* Hero Section */}
       <section id="accueil" className="hero-section">
-        <div className="hero-image" style={{ backgroundImage: `url(${images.hero})` }}>
-          <div className="hero-overlay"></div>
-        </div>
+        <video 
+          className="hero-video" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          <source src="https://customer-assets.emergentagent.com/job_villarental/artifacts/rsa6tvb7_308498c1-b147-4585-aeff-9a79443d77b5.mov" type="video/mp4" />
+          Votre navigateur ne supporte pas la vidéo.
+        </video>
+        <div className="hero-overlay"></div>
         <div className="hero-content">
           <h1 className="hero-title">Terre d'Évasion - Votre Villa de Rêve en Martinique</h1>
           <p className="hero-subtitle">Jusqu'à 80 personnes | Piscine | Événements | Séjours</p>
