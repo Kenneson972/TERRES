@@ -450,16 +450,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .calendrier-section {
   padding: var(--spacing-2xl) 0;
-  background: var(--white);
+  background: var(--bg-darker);
 }
 
 .calendar-wrapper {
   max-width: 800px;
   margin: 0 auto;
   padding: var(--spacing-xl);
-  background: var(--neutral);
+  background: var(--bg-card);
   border-radius: 12px;
   box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
 }
 
 .calendar-legend {
