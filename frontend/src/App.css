@@ -1244,6 +1244,11 @@ h1, h2, h3, h4, h5, h6 {
     aspect-ratio: 16 / 10;
   }
   
+  .videos-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
   .lightbox-premium-img,
   .lightbox-premium-video {
     max-width: 95vw;
@@ -1254,6 +1259,41 @@ h1, h2, h3, h4, h5, h6 {
     top: -50px;
     width: 48px;
     height: 48px;
+  }
+  
+  .lightbox-nav {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .lightbox-nav-prev {
+    left: 10px;
+    transform: translateY(-50%);
+  }
+  
+  .lightbox-nav-next {
+    right: 10px;
+    transform: translateY(-50%);
+  }
+  
+  .lightbox-nav:hover {
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .lightbox-info-bar {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+  
+  .lightbox-premium-title {
+    font-size: 1.25rem;
+  }
+  
+  .gallery-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
   }
 }
 
