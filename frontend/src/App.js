@@ -544,24 +544,24 @@ const Home = () => {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-col">
-              <h4>Villa Paradise</h4>
+              <h4>Terre d'Évasion</h4>
               <p>Votre havre de paix en Martinique pour des séjours et événements inoubliables.</p>
             </div>
             <div className="footer-col">
               <h4>Navigation</h4>
               <ul>
-                <li><button onClick={() => scrollToSection('accueil')}>Accueil</button></li>
-                <li><button onClick={() => scrollToSection('formules')}>Formules</button></li>
-                <li><button onClick={() => scrollToSection('calendrier')}>Calendrier</button></li>
-                <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
+                <li><button onClick={() => navigate('/')}>Accueil</button></li>
+                <li><button onClick={() => navigate('/formules')}>Formules</button></li>
+                <li><button onClick={() => navigate('/calendrier')}>Calendrier</button></li>
+                <li><button onClick={() => navigate('/contact')}>Contact</button></li>
               </ul>
             </div>
             <div className="footer-col">
               <h4>Contact</h4>
               <ul>
                 <li>+596 696 XX XX XX</li>
-                <li>contact@villa-martinique.com</li>
-                <li>Martinique, 97200</li>
+                <li>contact@terredevasion.com</li>
+                <li>QUARTIER BELEME 138<br/>97232 LE LAMENTIN</li>
               </ul>
             </div>
             <div className="footer-col">
@@ -574,7 +574,7 @@ const Home = () => {
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; 2025 Villa Paradise. Tous droits réservés.</p>
+            <p>&copy; 2025 Terre d'Évasion. Tous droits réservés.</p>
             <div className="footer-links">
               <a href="#">Mentions légales</a>
               <a href="#">CGV</a>
