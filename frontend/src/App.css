@@ -699,9 +699,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer {
-  background: var(--dark);
-  color: var(--white);
+  background: var(--bg-darker);
+  color: var(--text);
   padding: var(--spacing-2xl) 0 var(--spacing-lg);
+  border-top: 1px solid var(--border);
 }
 
 .footer-grid {
@@ -718,7 +719,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-col p {
-  color: #D1D5DB;
+  color: var(--text-secondary);
   margin-bottom: var(--spacing-sm);
 }
 
@@ -728,12 +729,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-col ul li {
   margin-bottom: var(--spacing-sm);
+  color: var(--text-secondary);
 }
 
 .footer-col ul li button {
   background: none;
   border: none;
-  color: #D1D5DB;
+  color: var(--text-secondary);
   cursor: pointer;
   transition: color 0.3s ease;
 }
@@ -749,7 +751,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-social-icon {
-  color: #D1D5DB;
+  color: var(--text-secondary);
   transition: color 0.3s ease;
 }
 
@@ -762,7 +764,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: center;
   padding-top: var(--spacing-lg);
-  border-top: 1px solid #374151;
+  border-top: 1px solid var(--border);
   flex-wrap: wrap;
   gap: var(--spacing-md);
 }
@@ -773,7 +775,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-links a {
-  color: #D1D5DB;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.3s ease;
 }
