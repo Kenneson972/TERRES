@@ -347,7 +347,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .formules-section {
   padding: var(--spacing-2xl) 0;
-  background: var(--neutral);
+  background: var(--bg-dark);
 }
 
 .formules-grid {
@@ -358,11 +358,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .formule-card {
   position: relative;
-  background: var(--white);
+  background: var(--bg-card);
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
 }
 
 .formule-card:hover {
