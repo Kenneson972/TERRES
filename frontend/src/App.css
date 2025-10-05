@@ -250,6 +250,7 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   color: var(--white);
   padding: 0 var(--spacing-lg);
+  z-index: 2;
 }
 
 .hero-title {
