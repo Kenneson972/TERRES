@@ -525,7 +525,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .features-section {
   padding: var(--spacing-2xl) 0;
-  background: var(--white);
+  background: var(--bg-darker);
 }
 
 .features-grid {
@@ -537,9 +537,10 @@ h1, h2, h3, h4, h5, h6 {
 .feature-item {
   text-align: center;
   padding: var(--spacing-xl);
-  background: var(--neutral);
+  background: var(--bg-card);
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border);
 }
 
 .feature-item:hover {
@@ -554,17 +555,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .feature-item h3 {
   font-size: 1.25rem;
-  color: var(--primary);
+  color: var(--text);
   margin-bottom: var(--spacing-sm);
 }
 
 .feature-item p {
-  color: #6B7280;
+  color: var(--text-secondary);
 }
 
 .partenaires-section {
   padding: var(--spacing-2xl) 0;
-  background: var(--neutral);
+  background: var(--bg-dark);
 }
 
 .partenaires-grid {
@@ -574,10 +575,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .partenaire-card {
-  background: var(--white);
+  background: var(--bg-card);
   border-radius: 12px;
   box-shadow: var(--shadow-md);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border);
 }
 
 .partenaire-card:hover {
