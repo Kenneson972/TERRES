@@ -273,6 +273,27 @@ async def get_statistics(username: str = Depends(verify_token)):
 # Include router
 app.include_router(api_router)
 
+# Image proxy pour contourner CORS
+@app.get("/api/image-proxy")
+async def image_proxy(url: str):
+    """Proxy images to bypass CORS for WebGL"""
+    import httpx
+    from fastapi.responses import Response
+    
+    try:
+        async with httpx.AsyncClient() as client:
+            response = await client.get(url)
+            return Response(
+                content=response.content,
+                media_type=response.headers.get('content-type', 'image/jpeg'),
+                headers={
+                    'Access-Control-Allow-Origin': '*',
+                    'Cache-Control': 'public, max-age=86400'
+                }
+            )
+    except Exception as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
