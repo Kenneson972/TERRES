@@ -206,19 +206,38 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .cta-button {
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
   color: var(--white);
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.75rem;
   border-radius: 9999px;
   font-weight: 600;
-  border: none;
+  border: 2px solid var(--teal);
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--secondary-light) 100%);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.cta-button:hover::before {
+  left: 0;
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-teal);
+  border-color: var(--gold);
 }
 
 .mobile-menu-btn {
