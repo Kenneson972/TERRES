@@ -1,16 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Dark Theme Colors */
-  --primary: #3B82F6;
-  --secondary: #10B981;
-  --accent: #F59E0B;
-  --bg-dark: #0F172A;
-  --bg-darker: #020617;
-  --bg-card: #1E293B;
-  --text: #F1F5F9;
-  --text-secondary: #94A3B8;
-  --border: #334155;
+  /* Tropical Elegant Theme - Based on Logo Colors */
+  --primary: #2D9B9B;
+  --primary-light: #3DBDBD;
+  --primary-dark: #1F6B6B;
+  --secondary: #D4AF37;
+  --secondary-light: #F4D03F;
+  --accent: #D4AF37;
+  --accent-glow: rgba(212, 175, 55, 0.3);
+  --teal: #2D9B9B;
+  --teal-light: #3DBDBD;
+  --gold: #D4AF37;
+  
+  --bg-dark: #0A1E1E;
+  --bg-darker: #051212;
+  --bg-card: #0F2626;
+  --bg-gradient: linear-gradient(135deg, #0A1E1E 0%, #051212 100%);
+  
+  --text: #F0F4F4;
+  --text-secondary: #B8D4D4;
+  --border: #2D9B9B;
+  --border-light: rgba(45, 155, 155, 0.3);
   --white: #FFFFFF;
   
   --spacing-xs: 0.5rem;
@@ -20,10 +31,12 @@
   --spacing-xl: 3rem;
   --spacing-2xl: 4rem;
   
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.7);
+  --shadow-teal: 0 8px 32px rgba(45, 155, 155, 0.4);
+  --shadow-gold: 0 8px 32px rgba(212, 175, 55, 0.3);
 }
 
 * {
