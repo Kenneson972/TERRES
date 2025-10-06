@@ -155,12 +155,29 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   padding: var(--spacing-xs) var(--spacing-sm);
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--teal);
+  transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-  color: var(--primary);
+  color: var(--teal);
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 .nav-actions {
@@ -175,8 +192,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .social-icon {
-  color: var(--text);
-  transition: color 0.3s ease;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  color: var(--gold);
+  transform: translateY(-2px);
 }
 
 .social-icon:hover {
