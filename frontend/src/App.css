@@ -1287,31 +1287,41 @@ h1, h2, h3, h4, h5, h6 {
 .luxury-subtitle {
   display: block;
   font-size: 0.875rem;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--gold);
   font-weight: 600;
   margin-bottom: var(--spacing-sm);
 }
 
 .section-title-luxury {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--white);
   margin-bottom: var(--spacing-md);
   line-height: 1.2;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title-luxury::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--teal), var(--gold), transparent);
 }
 
 .section-description-luxury {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.8;
+  max-width: 700px;
+  margin: var(--spacing-lg) auto 0;
+  line-height: 1.7;
 }
 
 /* Luxury Gallery Grid */
