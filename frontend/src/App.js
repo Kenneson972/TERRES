@@ -92,7 +92,7 @@ const FormulesPage = () => {
     }
   };
 
-  return (<div className="page-container"><Navigation /><section className="formules-section"><div className="container"><h2 className="section-title">Nos Formules de Location</h2><p className="section-subtitle">Choisissez la formule qui correspond à vos besoins</p><div className="formules-grid">{FORMULES.map((formule) => (<Card key={formule.id} className={`formule-card ${formule.popular ? 'popular' : ''}`}>{formule.popular && <div className="popular-badge">POPULAIRE</div>}<CardHeader><CardTitle className="formule-title">{formule.nom}</CardTitle><div className="formule-prix">{formule.prix}€</div><CardDescription className="formule-duree">{formule.duree}</CardDescription></CardHeader><CardContent><p className="formule-description">{formule.description}</p><ul className="formule-details">{formule.details.map((detail, idx) => (<li key={idx}><CheckCircle size={16} /><span>{detail}</span></li>))}</ul><Button data-testid={`reserver-${formule.id}-btn`} className="formule-btn" onClick={() => handleFormuleSelect(formule)}>RÉSERVER CETTE FORMULE</Button></CardContent></Card>))}</div></div></section><Footer /><Dialog open={showBookingDialog} onOpenChange={setShowBookingDialog}><DialogContent className="booking-dialog"><DialogHeader><DialogTitle>Réserver : {selectedFormule?.nom}</DialogTitle><DialogDescription>Prix : {selectedFormule?.prix}€ | {selectedFormule?.duree}</DialogDescription></DialogHeader><form onSubmit={handleBookingSubmit} className="booking-form"><div className="form-group"><Label>Sélectionnez vos dates</Label><p className="form-hint">Les dates déjà réservées ne sont pas sélectionnables</p></div><div className="form-group"><Label htmlFor="nom">Nom complet *</Label><Input id="nom" value={bookingForm.nom} onChange={(e) => setBookingForm({...bookingForm, nom: e.target.value})} required /></div><div className="form-group"><Label htmlFor="email">Email *</Label><Input id="email" type="email" value={bookingForm.email} onChange={(e) => setBookingForm({...bookingForm, email: e.target.value})} required /></div><div className="form-group"><Label htmlFor="telephone">Téléphone *</Label><Input id="telephone" value={bookingForm.telephone} onChange={(e) => setBookingForm({...bookingForm, telephone: e.target.value})} required /></div><div className="form-group"><Label htmlFor="nombrePersonnes">Nombre de personnes *</Label><Input id="nombrePersonnes" type="number" min="1" max="80" value={bookingForm.nombrePersonnes} onChange={(e) => setBookingForm({...bookingForm, nombrePersonnes: e.target.value})} required /></div><div className="form-group"><Label htmlFor="modePaiement">Mode de paiement</Label><Select value={bookingForm.modePaiement} onValueChange={(value) => setBookingForm({...bookingForm, modePaiement: value})}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectItem value="1x">Paiement en 1 fois</SelectItem><SelectItem value="2x">Paiement en 2 fois</SelectItem><SelectItem value="3x">Paiement en 3 fois</SelectItem><SelectItem value="4x">Paiement en 4 fois</SelectItem></SelectContent></Select><p className="form-hint">Le paiement sera disponible après validation des dates</p></div><Button data-testid="confirmer-reservation-btn" type="submit" className="submit-btn">CONFIRMER LA RÉSERVATION</Button></form></DialogContent></Dialog><Toaster position="top-right" /></div>);
+  return (<div className="page-container"><Navigation /><section className="formules-section"><div className="container"><h2 className="section-title">Nos Formules de Location</h2><p className="section-subtitle">Choisissez la formule qui correspond à vos besoins</p><div className="formules-grid">{FORMULES.map((formule) => (<Card key={formule.id} className={`formule-card ${formule.popular ? 'popular' : ''}`}>{formule.popular && <div className="popular-badge">POPULAIRE</div>}<CardHeader><CardTitle className="formule-title">{formule.nom}</CardTitle><div className="formule-prix">{formule.prix}€</div><CardDescription className="formule-duree">{formule.duree}</CardDescription></CardHeader><CardContent><p className="formule-description">{formule.description}</p><ul className="formule-details">{formule.details.map((detail, idx) => (<li key={idx}><CheckCircle size={16} /><span>{detail}</span></li>))}</ul><Button data-testid={`reserver-${formule.id}-btn`} className="formule-btn" onClick={() => handleFormuleSelect(formule)}>RÉSERVER CETTE FORMULE</Button></CardContent></Card>))}</div></div></section><Footer /><Dialog open={showBookingDialog} onOpenChange={setShowBookingDialog}><DialogContent className="booking-dialog"><DialogHeader><DialogTitle>Réserver : {selectedFormule?.nom}</DialogTitle><DialogDescription>Prix : {selectedFormule?.prix}€ | {selectedFormule?.duree}</DialogDescription></DialogHeader><form onSubmit={handleBookingSubmit} className="booking-form"><div className="form-group"><Label>Sélectionnez vos dates</Label><p className="form-hint">Les dates déjà réservées ne sont pas sélectionnables</p></div><div className="form-group"><Label htmlFor="nom">Nom complet *</Label><Input id="nom" value={bookingForm.nom} onChange={(e) =&gt; setBookingForm({...bookingForm, nom: e.target.value})} required /></div><div className="form-group"><Label htmlFor="email">Email *</Label><Input id="email" type="email" value={bookingForm.email} onChange={(e) =&gt; setBookingForm({...bookingForm, email: e.target.value})} required /></div><div className="form-group"><Label htmlFor="telephone">Téléphone *</Label><Input id="telephone" value={bookingForm.telephone} onChange={(e) =&gt; setBookingForm({...bookingForm, telephone: e.target.value})} required /></div><div className="form-group"><Label htmlFor="nombrePersonnes">Nombre de personnes *</Label><Input id="nombrePersonnes" type="number" min="1" max="80" value={bookingForm.nombrePersonnes} onChange={(e) =&gt; setBookingForm({...bookingForm, nombrePersonnes: e.target.value})} required /></div><div className="form-group"><Label htmlFor="modePaiement">Mode de paiement</Label><Select value={bookingForm.modePaiement} onValueChange={(value) =&gt; setBookingForm({...bookingForm, modePaiement: value})}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectItem value="1x">Paiement en 1 fois</SelectItem><SelectItem value="2x">Paiement en 2 fois</SelectItem><SelectItem value="3x">Paiement en 3 fois</SelectItem><SelectItem value="4x">Paiement en 4 fois</SelectItem></SelectContent></Select><p className="form-hint">Le paiement sera disponible après validation des dates</p></div><Button data-testid="confirmer-reservation-btn" type="submit" className="submit-btn">CONFIRMER LA RÉSERVATION</Button></form></DialogContent></Dialog><Toaster position="top-right" /></div>);
 };
 
 const CalendrierPage = () => {
@@ -117,66 +117,93 @@ const CalendrierPage = () => {
 };
 
 const GaleriePage = () => {
+  // Masonry premium gallery with local assets + lightbox (images & videos)
+  const media = [
+    { type: 'image', src: '/gallery/img1.jpg', title: 'Piscine de luxe' },
+    { type: 'image', src: '/gallery/img2.jpg', title: 'Espace détente' },
+    { type: 'image', src: '/gallery/img3.jpg', title: 'Vue extérieure' },
+    { type: 'image', src: '/gallery/img4.jpg', title: 'Espace bar' },
+    { type: 'image', src: '/gallery/img5.jpg', title: 'Chambre cosy' },
+    { type: 'image', src: '/gallery/img6.jpg', title: 'Espace bien-être' },
+    { type: 'video', src: '/gallery/video1.mp4', title: 'Présentation vidéo 1', poster: '/gallery/img1.jpg' },
+    { type: 'video', src: '/gallery/video2.mp4', title: 'Présentation vidéo 2', poster: '/gallery/img2.jpg' },
+    { type: 'video', src: '/gallery/video3.mp4', title: 'Présentation vidéo 3', poster: '/gallery/img3.jpg' },
+    { type: 'video', src: '/gallery/video4.mp4', title: 'Présentation vidéo 4', poster: '/gallery/img4.jpg' }
+  ];
+
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const images = [
-    { url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/v9wedq6e_IMG_9650.jpeg', title: 'Piscine de luxe' },
-    { url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/2xzjs8yb_IMG_9651.jpeg', title: 'Espace détente' },
-    { url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/gxd6nps1_IMG_9645.jpeg', title: 'Vue extérieure' },
-    { url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/ygz7r35z_IMG_9644.jpeg', title: 'Espace bar' },
-    { url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/j8b3zaod_IMG_9643.jpeg', title: 'Chambre cosy' },
-    { url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/y6e153v1_IMG_9642.jpeg', title: 'Espace bien-être' }
-  ];
-
-  const videos = [
-    { url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/murxouhh_VIDEO-2025-10-03-12-18-12.mp4', poster: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/v9wedq6e_IMG_9650.jpeg' },
-    { url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/w2oio5ts_VIDEO-2025-10-03-12-18-11.mp4', poster: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/2xzjs8yb_IMG_9651.jpeg' },
-    { url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/6tp3d75s_VIDEO-2025-10-03-12-18-11.mp4', poster: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/gxd6nps1_IMG_9645.jpeg' },
-    { url: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/cbqcvbhm_VIDEO-2025-10-03-12-18-11.mp4', poster: 'https://customer-assets.emergentagent.com/job_villarental/artifacts/ygz7r35z_IMG_9644.jpeg' }
-  ];
-
-  const openImage = (img) => {
-    setCurrentImage(img);
+  const openAt = (idx) => {
+    setCurrentIndex(idx);
     setLightboxOpen(true);
   };
+
+  const closeLightbox = () => setLightboxOpen(false);
+  const next = (e) => { e?.stopPropagation?.(); setCurrentIndex((prev) => (prev + 1) % media.length); };
+  const prev = (e) => { e?.stopPropagation?.(); setCurrentIndex((prev) => (prev - 1 + media.length) % media.length); };
+
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [lightboxOpen]);
 
   return (
     <div className="page-container">
       <Navigation />
-      <section className="simple-gallery-section">
+
+      <section className="masonry-section">
         <div className="container">
-          <div className="gallery-header">
-            <h1>Galerie Photos & Vidéos</h1>
-            <p>Découvrez notre magnifique villa en Martinique</p>
+          <div className="masonry-header">
+            <h1 className="section-title-luxury">Galerie Photos &amp; Vidéos</h1>
+            <p className="section-description-luxury">Découvrez notre villa sous ses plus beaux angles: espaces, piscine, ambiance et visites vidéo.</p>
           </div>
 
-          <div className="simple-gallery-grid">
-            {images.map((img, idx) => (
-              <div key={idx} className="simple-gallery-item" onClick={() => openImage(img)}>
-                <img src={img.url} alt={img.title} />
-                <div className="simple-overlay">
-                  <span>{img.title}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <h2 className="videos-title">Visites Virtuelles</h2>
-          <div className="simple-videos-grid">
-            {videos.map((video, idx) => (
-              <div key={idx} className="simple-video-item">
-                <video src={video.url} poster={video.poster} controls></video>
-              </div>
+          <div className="masonry-grid" data-testid="masonry-grid">
+            {media.map((item, idx) => (
+              <figure key={idx} className="masonry-item" onClick={() => openAt(idx)}>
+                {item.type === 'image' ? (
+                  <img src={item.src} alt={item.title} loading="lazy" />
+                ) : (
+                  <div className="masonry-video-thumb" role="img" aria-label={item.title} style={{ backgroundImage: `url(${item.poster})` }}>
+                    <div className="video-play-icon" aria-hidden>▶</div>
+                  </div>
+                )}
+                <figcaption className="masonry-caption">
+                  <span>{item.title}</span>
+                  {item.type === 'video' && <span className="media-badge">VIDÉO</span>}
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
       </section>
 
       {lightboxOpen && (
-        <div className="simple-lightbox" onClick={() => setLightboxOpen(false)}>
-          <button className="close-btn" onClick={() => setLightboxOpen(false)}>×</button>
-          <img src={currentImage?.url} alt={currentImage?.title} onClick={(e) => e.stopPropagation()} />
+        <div className="lightbox-premium" onClick={closeLightbox}>
+          <div className="lightbox-premium-content" onClick={(e) => e.stopPropagation()}>
+            <button className="lightbox-premium-close" onClick={closeLightbox} aria-label="Fermer">×</button>
+            <button className="lightbox-nav lightbox-nav-prev" onClick={prev} aria-label="Précédent">‹</button>
+            <button className="lightbox-nav lightbox-nav-next" onClick={next} aria-label="Suivant">›</button>
+
+            <div className="lightbox-premium-media">
+              {media[currentIndex].type === 'image' ? (
+                <img className="lightbox-premium-img" src={media[currentIndex].src} alt={media[currentIndex].title} />
+              ) : (
+                <video className="lightbox-premium-video" src={media[currentIndex].src} controls autoPlay playsInline poster={media[currentIndex].poster} />
+              )}
+            </div>
+            <div className="lightbox-info-bar">
+              <div className="lightbox-premium-title">{media[currentIndex].title}</div>
+              <div className="lightbox-counter">{currentIndex + 1} / {media.length}</div>
+            </div>
+          </div>
         </div>
       )}
 
@@ -187,7 +214,7 @@ const GaleriePage = () => {
 };
 
 const PartenairesPage = () => {
-  return (<div className="page-container"><Navigation /><section className="partenaires-section"><div className="container"><h2 className="section-title">Nos Partenaires de Confiance</h2><p className="section-subtitle">Des services complémentaires pour un séjour parfait</p><div className="partenaires-grid"><Card className="partenaire-card"><CardHeader><CardTitle>Location de Véhicule</CardTitle><CardDescription>Déplacez-vous en toute liberté pendant votre séjour</CardDescription></CardHeader><CardContent><div className="partenaire-contact"><p><Phone size={16} /> +596 696 XX XX XX</p><p><Mail size={16} /> location@exemple.mq</p></div><Button data-testid="reserver-vehicule-btn" className="partenaire-btn">RÉSERVER UN VÉHICULE</Button></CardContent></Card><Card className="partenaire-card"><CardHeader><CardTitle>Chef à Domicile</CardTitle><CardDescription>Savourez des plats raffinés préparés sur place</CardDescription></CardHeader><CardContent><div className="partenaire-contact"><p><Phone size={16} /> +596 696 XX XX XX</p><p><Mail size={16} /> chef@exemple.mq</p></div><Button data-testid="prendre-rdv-chef-btn" className="partenaire-btn">PRENDRE RDV</Button></CardContent></Card><Card className="partenaire-card"><CardHeader><CardTitle>Massage & Bien-être</CardTitle><CardDescription>Détendez-vous avec nos prestations bien-être</CardDescription></CardHeader><CardContent><div className="partenaire-contact"><p><Phone size={16} /> +596 696 XX XX XX</p><p><Mail size={16} /> spa@exemple.mq</p></div><Button data-testid="reserver-seance-spa-btn" className="partenaire-btn">RÉSERVER UNE SÉANCE</Button></CardContent></Card></div></div></section><section className="faq-section"><div className="container"><h2 className="section-title">Questions Fréquentes</h2><Accordion type="single" collapsible className="faq-accordion"><AccordionItem value="item-1"><AccordionTrigger>Quelles sont les conditions d'annulation ?</AccordionTrigger><AccordionContent>Annulation gratuite jusqu'à 30 jours avant l'arrivée. Entre 30 et 15 jours : remboursement de 50%. Moins de 15 jours : aucun remboursement.</AccordionContent></AccordionItem><AccordionItem value="item-2"><AccordionTrigger>Une caution est-elle demandée ?</AccordionTrigger><AccordionContent>Oui, une caution de 500€ est demandée à l'arrivée. Elle est restituée dans les 7 jours suivant le départ si aucun dégât n'est constaté.</AccordionContent></AccordionItem><AccordionItem value="item-3"><AccordionTrigger>Les animaux sont-ils acceptés ?</AccordionTrigger><AccordionContent>Les animaux de compagnie ne sont pas acceptés dans la villa pour des raisons d'hygiène et de confort de tous.</AccordionContent></AccordionItem><AccordionItem value="item-4"><AccordionTrigger>Le paiement est-il sécurisé ?</AccordionTrigger><AccordionContent>Oui, tous les paiements sont traités de manière sécurisée. Nous acceptons les paiements en une fois ou en plusieurs fois selon le montant.</AccordionContent></AccordionItem></Accordion></div></section><Footer /><Toaster position="top-right" /></div>);
+  return (<div className="page-container"><Navigation /><section className="partenaires-section"><div className="container"><h2 className="section-title">Nos Partenaires de Confiance</h2><p className="section-subtitle">Des services complémentaires pour un séjour parfait</p><div className="partenaires-grid"><Card className="partenaire-card"><CardHeader><CardTitle>Location de Véhicule</CardTitle><CardDescription>Déplacez-vous en toute liberté pendant votre séjour</CardDescription></CardHeader><CardContent><div className="partenaire-contact"><p><Phone size={16} /> +596 696 XX XX XX</p><p><Mail size={16} /> location@exemple.mq</p></div><Button data-testid="reserver-vehicule-btn" className="partenaire-btn">RÉSERVER UN VÉHICULE</Button></CardContent></Card><Card className="partenaire-card"><CardHeader><CardTitle>Chef à Domicile</CardTitle><CardDescription>Savourez des plats raffinés préparés sur place</CardDescription></CardHeader><CardContent><div className="partenaire-contact"><p><Phone size={16} /> +596 696 XX XX XX</p><p><Mail size={16} /> chef@exemple.mq</p></div><Button data-testid="prendre-rdv-chef-btn" className="partenaire-btn">PRENDRE RDV</Button></CardContent></Card><Card className="partenaire-card"><CardHeader><CardTitle>Massage &amp; Bien-être</CardTitle><CardDescription>Détendez-vous avec nos prestations bien-être</CardDescription></CardHeader><CardContent><div className="partenaire-contact"><p><Phone size={16} /> +596 696 XX XX XX</p><p><Mail size={16} /> spa@exemple.mq</p></div><Button data-testid="reserver-seance-spa-btn" className="partenaire-btn">RÉSERVER UNE SÉANCE</Button></CardContent></Card></div></div></section><section className="faq-section"><div className="container"><h2 className="section-title">Questions Fréquentes</h2><Accordion type="single" collapsible className="faq-accordion"><AccordionItem value="item-1"><AccordionTrigger>Quelles sont les conditions d'annulation ?</AccordionTrigger><AccordionContent>Annulation gratuite jusqu'à 30 jours avant l'arrivée. Entre 30 et 15 jours : remboursement de 50%. Moins de 15 jours : aucun remboursement.</AccordionContent></AccordionItem><AccordionItem value="item-2"><AccordionTrigger>Une caution est-elle demandée ?</AccordionTrigger><AccordionContent>Oui, une caution de 500€ est demandée à l'arrivée. Elle est restituée dans les 7 jours suivant le départ si aucun dégât n'est constaté.</AccordionContent></AccordionItem><AccordionItem value="item-3"><AccordionTrigger>Les animaux sont-ils acceptés ?</AccordionTrigger><AccordionContent>Les animaux de compagnie ne sont pas acceptés dans la villa pour des raisons d'hygiène et de confort de tous.</AccordionContent></AccordionItem><AccordionItem value="item-4"><AccordionTrigger>Le paiement est-il sécurisé ?</AccordionTrigger><AccordionContent>Oui, tous les paiements sont traités de manière sécurisée. Nous acceptons les paiements en une fois ou en plusieurs fois selon le montant.</AccordionContent></AccordionItem></Accordion></div></section><Footer /><Toaster position="top-right" /></div>);
 };
 
 const ContactPage = () => {
@@ -251,13 +278,13 @@ const Proprietaire = () => {
     navigate('/');
   };
 
-  if (loading) return <div className="loading">Chargement...</div>;
+  if (loading) return &lt;div className="loading">Chargement...</div>;
 
   if (!isAuthenticated) {
-    return (<div className="proprietaire-login"><Card className="login-card"><CardHeader><CardTitle>Espace Propriétaire</CardTitle><CardDescription>Connectez-vous pour accéder au dashboard</CardDescription></CardHeader><CardContent><form onSubmit={handleLogin} className="login-form"><div className="form-group"><Label htmlFor="username">Nom d'utilisateur</Label><Input id="username" value={loginForm.username} onChange={(e) => setLoginForm({...loginForm, username: e.target.value})} required /></div><div className="form-group"><Label htmlFor="password">Mot de passe</Label><Input id="password" type="password" value={loginForm.password} onChange={(e) => setLoginForm({...loginForm, password: e.target.value})} required /></div><Button data-testid="login-btn" type="submit" className="login-btn">SE CONNECTER</Button></form></CardContent></Card></div>);
+    return (&lt;div className="proprietaire-login">&lt;Card className="login-card">&lt;CardHeader>&lt;CardTitle>Espace Propriétaire&lt;/CardTitle>&lt;CardDescription>Connectez-vous pour accéder au dashboard&lt;/CardDescription>&lt;/CardHeader>&lt;CardContent>&lt;form onSubmit={handleLogin} className="login-form">&lt;div className="form-group">&lt;Label htmlFor="username">Nom d'utilisateur&lt;/Label>&lt;Input id="username" value={loginForm.username} onChange={(e) =&gt; setLoginForm({...loginForm, username: e.target.value})} required />&lt;/div>&lt;div className="form-group">&lt;Label htmlFor="password">Mot de passe&lt;/Label>&lt;Input id="password" type="password" value={loginForm.password} onChange={(e) =&gt; setLoginForm({...loginForm, password: e.target.value})} required />&lt;/div>&lt;Button data-testid="login-btn" type="submit" className="login-btn">SE CONNECTER&lt;/Button>&lt;/form>&lt;/CardContent>&lt;/Card>&lt;/div>);
   }
 
-  return (<div className="proprietaire-dashboard"><div className="dashboard-header"><h1>Dashboard Propriétaire</h1><Button data-testid="logout-btn" variant="outline" onClick={handleLogout}>Déconnexion</Button></div>{stats && (<div className="stats-grid"><Card><CardHeader><CardTitle>Total Réservations</CardTitle></CardHeader><CardContent><div className="stat-value">{stats.total_reservations}</div></CardContent></Card><Card><CardHeader><CardTitle>Confirmées</CardTitle></CardHeader><CardContent><div className="stat-value">{stats.confirmed_reservations}</div></CardContent></Card><Card><CardHeader><CardTitle>En attente</CardTitle></CardHeader><CardContent><div className="stat-value">{stats.pending_reservations}</div></CardContent></Card><Card><CardHeader><CardTitle>Revenu total</CardTitle></CardHeader><CardContent><div className="stat-value">{stats.total_revenue}€</div></CardContent></Card></div>)}<Card className="reservations-table-card"><CardHeader><CardTitle>Réservations</CardTitle></CardHeader><CardContent><div className="table-wrapper"><table className="reservations-table"><thead><tr><th>Client</th><th>Formule</th><th>Dates</th><th>Personnes</th><th>Montant</th><th>Statut</th></tr></thead><tbody>{reservations.map((res) => (<tr key={res.id}><td>{res.nom_client}</td><td>{res.formule}</td><td>{new Date(res.date_debut).toLocaleDateString()} - {new Date(res.date_fin).toLocaleDateString()}</td><td>{res.nombre_personnes}</td><td>{res.montant_total}€</td><td><span className={`status-badge ${res.statut_paiement}`}>{res.statut_paiement}</span></td></tr>))}</tbody></table></div></CardContent></Card></div>);
+  return (&lt;div className="proprietaire-dashboard">&lt;div className="dashboard-header">&lt;h1>Dashboard Propriétaire&lt;/h1>&lt;Button data-testid="logout-btn" variant="outline" onClick={handleLogout}>Déconnexion&lt;/Button>&lt;/div>{stats && (&lt;div className="stats-grid">&lt;Card>&lt;CardHeader>&lt;CardTitle>Total Réservations&lt;/CardTitle>&lt;/CardHeader>&lt;CardContent>&lt;div className="stat-value">{stats.total_reservations}&lt;/div>&lt;/CardContent>&lt;/Card>&lt;Card>&lt;CardHeader>&lt;CardTitle>Confirmées&lt;/CardTitle>&lt;/CardHeader>&lt;CardContent>&lt;div className="stat-value">{stats.confirmed_reservations}&lt;/div>&lt;/CardContent>&lt;/Card>&lt;Card>&lt;CardHeader>&lt;CardTitle>En attente&lt;/CardTitle>&lt;/CardHeader>&lt;CardContent>&lt;div className="stat-value">{stats.pending_reservations}&lt;/div>&lt;/CardContent>&lt;/Card>&lt;Card>&lt;CardHeader>&lt;CardTitle>Revenu total&lt;/CardTitle>&lt;/CardHeader>&lt;CardContent>&lt;div className="stat-value">{stats.total_revenue}€&lt;/div>&lt;/CardContent>&lt;/Card>&lt;/div>)}&lt;Card className="reservations-table-card">&lt;CardHeader>&lt;CardTitle>Réservations&lt;/CardTitle>&lt;/CardHeader>&lt;CardContent>&lt;div className="table-wrapper">&lt;table className="reservations-table">&lt;thead>&lt;tr>&lt;th>Client&lt;/th>&lt;th>Formule&lt;/th>&lt;th>Dates&lt;/th>&lt;th>Personnes&lt;/th>&lt;th>Montant&lt;/th>&lt;th>Statut&lt;/th>&lt;/tr>&lt;/thead>&lt;tbody>{reservations.map((res) => (&lt;tr key={res.id}>&lt;td>{res.nom_client}&lt;/td>&lt;td>{res.formule}&lt;/td>&lt;td>{new Date(res.date_debut).toLocaleDateString()} - {new Date(res.date_fin).toLocaleDateString()}&lt;/td>&lt;td>{res.nombre_personnes}&lt;/td>&lt;td>{res.montant_total}€&lt;/td>&lt;td>&lt;span className={`status-badge ${res.statut_paiement}`}>{res.statut_paiement}&lt;/span>&lt;/td>&lt;/tr>))}&lt;/tbody>&lt;/table>&lt;/div>&lt;/CardContent>&lt;/Card>&lt;/div>);
 };
 
 function App() {
