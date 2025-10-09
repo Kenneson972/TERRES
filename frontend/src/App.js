@@ -161,7 +161,7 @@ const GaleriePage = () => {
       <section className="masonry-section">
         <div className="container">
           <div className="masonry-header">
-            <h1 className="section-title-luxury">Galerie Photos &amp; Vidéos</h1>
+            <h1 className="section-title-luxury">Galerie Photos & Vidéos</h1>
             <p className="section-description-luxury">Découvrez notre villa sous ses plus beaux angles: espaces, piscine, ambiance et visites vidéo.</p>
           </div>
 
