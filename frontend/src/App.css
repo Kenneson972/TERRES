@@ -1262,30 +1262,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
-  .gallery-premium-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .videos-grid {
+@media (max-width: 1024px) {
+  .simple-gallery-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .gallery-premium-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
+  .gallery-header h1 {
+    font-size: 2rem;
   }
   
-  .gallery-premium-item {
-    aspect-ratio: 4 / 3;
+  .simple-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
   
-  .videos-grid {
+  .simple-videos-grid {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1rem;
   }
+  
+  .videos-title {
+    font-size: 2rem;
+  }
+}
   
   .section-title-luxury {
     font-size: clamp(2rem, 8vw, 2.5rem);
