@@ -1223,7 +1223,11 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive Design */
 @media (max-width: 1200px) {
   .gallery-premium-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .videos-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -1239,14 +1243,7 @@ h1, h2, h3, h4, h5, h6 {
   
   .videos-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .video-card-info {
-    position: static;
-    transform: translateY(0);
-    background: var(--bg-card);
-    padding: 1.25rem;
+    gap: 1.25rem;
   }
   
   .section-title-luxury {
