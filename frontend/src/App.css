@@ -1399,26 +1399,51 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-header-luxury {
   text-align: center;
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: 4rem;
   position: relative;
+  z-index: 2;
 }
 
 .luxury-subtitle {
-  display: block;
+  display: inline-block;
   font-size: 0.875rem;
-  letter-spacing: 4px;
+  letter-spacing: 5px;
   text-transform: uppercase;
   color: var(--gold);
-  font-weight: 600;
-  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 50px;
+  position: relative;
+}
+
+.luxury-subtitle::before {
+  content: '✦';
+  position: absolute;
+  left: 0.75rem;
+  color: var(--gold);
+  font-size: 0.75rem;
+}
+
+.luxury-subtitle::after {
+  content: '✦';
+  position: absolute;
+  right: 0.75rem;
+  color: var(--gold);
+  font-size: 0.75rem;
 }
 
 .section-title-luxury {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: var(--spacing-md);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--white) 0%, var(--teal-light) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
   line-height: 1.2;
   position: relative;
   display: inline-block;
@@ -1427,20 +1452,22 @@ h1, h2, h3, h4, h5, h6 {
 .section-title-luxury::after {
   content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
+  width: 120px;
+  height: 4px;
   background: linear-gradient(90deg, transparent, var(--teal), var(--gold), transparent);
+  border-radius: 10px;
 }
 
 .section-description-luxury {
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   color: var(--text-secondary);
-  max-width: 700px;
-  margin: var(--spacing-lg) auto 0;
-  line-height: 1.7;
+  max-width: 750px;
+  margin: 2rem auto 0;
+  line-height: 1.8;
+  font-weight: 400;
 }
 
 /* Luxury Gallery Grid */
